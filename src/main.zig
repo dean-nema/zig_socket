@@ -16,7 +16,7 @@ pub fn main() !void {
             .port = 9224,
             .address = "0.0.0.0",
             .handshake = .{
-                .timeout = 15,
+                .timeout = 25,
                 .max_size = 4096,
                 .max_headers = 0,
             },
