@@ -18,7 +18,7 @@ pub fn main() !void {
             .handshake = .{
                 .timeout = 25,
                 .max_size = 4096,
-                .max_headers = 0,
+                .max_headers = 16,
             },
         });
 
@@ -63,7 +63,6 @@ const Handler = struct {
     pub fn close(self: *Handler) void {
         std.debug.print("Connection closed\n", .{});
         self.app.removeClient();
-
         // Trigger server restart
         std.debug.print("Restarting server due to connection loss...\n", .{});
         self.app.restartServer() catch |err| {
