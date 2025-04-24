@@ -45,11 +45,11 @@ const Handler = struct {
 
     // You must define a public init function which takes
     pub fn init(h: ws.Handshake, conn: *ws.Conn, app: *App) !Handler {
-        std.debug.print("Handshake details:\n", .{});
-        std.debug.print("  Path: {s}\n", .{h.path});
-        std.debug.print("  Headers: {s}\n", .{h.headers});
-        std.debug.print("  Method: {s}\n", .{h.method});
-        std.debug.print("  Protocol: {s}\n", .{h.protocol orelse "none"});
+        // std.debug.print("Handshake details:\n", .{});
+        // std.debug.print("  Path: {s}\n", .{h.path});
+        // std.debug.print("  Headers: {s}\n", .{h.headers});
+        // std.debug.print("  Method: {s}\n", .{h.method});
+        // std.debug.print("  Protocol: {s}\n", .{h.protocol orelse "none"});
         // `h` contains the initial websocket "handshake" request
         // It can be used to apply application-specific logic to verify / allow
         // the connection (e.g. valid url, query string parameters, or headers)
@@ -57,7 +57,7 @@ const Handler = struct {
         // add client to list of active clients
         try app.addClient(conn);
 
-        // _ = h; // we're not using this in our simple case
+        _ = h; // we're not using this in our simple case
 
         return .{
             .app = app,
